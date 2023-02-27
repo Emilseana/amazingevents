@@ -1,3 +1,8 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
 main{
     font-family: 'Ropa Sans', sans-serif;
      }
@@ -78,15 +83,14 @@ footer{
     
 }
 .tabla {
-   
-
     border-collapse:separate;
     border: 3px solid black;
-    padding: 0px;
+    padding: 10px;
     text-align: left;
     display:flex;
-    margin-left: 100px;
+    justify-content: center;
 }
+
     
 th {
     background-color: #363131;
@@ -96,3 +100,7 @@ th {
     background-color: #363131;
   }
 
+button
+{
+    
+}
