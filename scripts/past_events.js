@@ -183,11 +183,103 @@ var data = {
           <p>${event.date}</p>
           <p>${event.description}</p>
           <p>${event.category}</p>
-          <p>${event.place}</p>
-          <p>${event.assistance} attended</p>
+          <a href="./details.html" class="btn btn-secondary">More </a>
         </div>
       </div>
     `;
     pastEventsContainer.innerHTML += card;
   }
 };
+const categoryCheckboxes = document.getElementById("category-checkboxes");
+let categories = [];
+
+// extraer una categoria unica con el array 
+data.events.forEach((event) => {
+  if (!categories.includes(event.category)) {
+    categories.push(event.category);
+  }
+});
+
+// crear checkbox segun la categoria
+categories.forEach((category) => {
+  const checkbox = `
+    <label>
+      <input type="checkbox" name="category" value="${category}">
+      ${category}
+    </label>
+  `;
+  categoryCheckboxes.innerHTML += checkbox;
+});
+const searchInput = document.getElementById("search-input");
+
+
+searchInput.addEventListener("input", filterEvents);
+categoryCheckboxes.forEach((checkbox) => {
+  checkbox.addEventListener("change", filterEvents);
+});
+
+function filterEvents() {
+  const searchText = searchInput.value.toLowerCase();
+  const selectedCategories = Array.from(categoryCheckboxes)
+    .filter((checkbox) => checkbox.checked)
+    .map((checkbox) => checkbox.value);
+
+  const filteredEvents = data.events.filter((event) => {
+    const nameMatch = event.name.toLowerCase().includes(searchText);
+    const descMatch = event.description.toLowerCase().includes(searchText);
+    const categoryMatch =
+      selectedCategories.length === 0 ||
+      selectedCategories.includes(event.category);
+    return nameMatch || descMatch && categoryMatch;
+  });
+
+//mostrar mensaje de no se encontro.
+  const eventsContainer = document.getElementById("events-container");
+  if (filteredEvents.length > 0) {
+    eventsContainer.innerHTML = "";
+    filteredEvents.forEach((event) => {
+      const card = `
+        <div class="card" onclick="showEventDetail(${event._id})">
+          <img src="${event.image}" alt="${event.name}">
+          <div class="card-info">
+            <h2>${event.name}</h2>
+            <p>${event.date}</p>
+            <p>${event.description}</p>
+            <p>${event.category}</p>
+            <p>${event.place}</p>
+            <p>${event.assistance} attended</p>
+          </div>
+        </div>
+      `;
+      eventsContainer.innerHTML += card;
+    });
+  } else {
+    eventsContainer.innerHTML = "<p>No results. Try modifying your filters.</p>";
+  }
+
+function showEventDetail(eventId) {
+  const event = data.events.find((event) => event._id === eventId);
+}
+const eventId = new URLSearchParams(window.location.search).get("details");
+const event = data.events.find((event) => event._id === parseInt(eventId));
+
+
+const eventDetailContainer = document.getElementById("event-detail-container");
+const eventDetail = `
+  <div class="card">
+    <img src="${event.image}" alt="${event.name}">
+    <div class="card-info">
+      <h2>${event.name}</h2>
+      <p>${event.date}</p>
+      <p>${event.description}</p>
+      <p>${event.category}</p>
+      <p>${event.place}</p>
+      <p>${event.assistance} attended</p>
+    </div>
+  </div>
+`;
+
+
+
+
+eventDetailContainer.innerHTML = eventDetail;}
