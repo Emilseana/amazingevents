@@ -35,7 +35,7 @@
         <div class="row">
         <div class="carousel-inner text-white text-center">
         <div class="carousel-item active">
-        <h3 class="text-dark bg-white mb-4 pl-3 pr-3 pt-1 pb-1 font-weight-bold">UPCOMING EVENTS</h3><br>
+        <h3 class="text-white mb-4 pl-3 pr-3 pt-1 pb-1 font-weight-bold">UPCOMING EVENTS</h3><br>
         </div>
         <a class="carousel-control-prev" href="./index.html" role="button" data-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -48,19 +48,18 @@
         </div>
         </div>
         </div>
-        <nav class="navbar bg-body-tertiary">
-          <div class="container">
-      <input type="text" id="search-input" placeholder="Search events...">
-      <div id="category-checkboxes"></div>
-    </nav>
-
-        <div class="cuerpo2">
-          <div  id="upcoming-events" class="row row-cols-1 row-cols-md-4 g-4" style="max-width:1000px" >       
-        </div>
-        <div class="card-info">
-          <div  id="events-container" class="row row-cols-1 row-cols-md-4 g-4" style="max-width:1000px" >       
-        </div>
-        </div>
+        <nav class="navbar navbar-expand-lg d-flex">
+          <div class="navbar d-inline-flex justify-content-evenly" id="checkbox">
+          </div>
+          <div class="searchbar justify-content-end">
+              <form class="d-flex justify-content-end" role="search" id="search">
+                  <input class="form-control me-2" type="search" placeholder="Search event..." aria-label="Search" >
+              </form>
+          </div> 
+          </div>
+      </nav> 
+      <div class="all cards d-flex flex-row flex-wrap mb-3 gap-5 justify-content-center" id="cont-cards">
+      </div>
         </main>
         <footer>
           <div class="container">

@@ -33,10 +33,9 @@
  </header>
     <main>
       <div class="containercarousel">
-        <div class="row">
         <div class="carousel-inner text-white text-center">
         <div class="carousel-item active">
-        <h3 class="text-dark bg-white mb-4 pl-3 pr-3 pt-1 pb-1 font-weight-bold">CONTACT US</h3><br>
+        <h3 class="text-white mb-4 pl-3 pr-3 pt-1 pb-1 font-weight-bold">CONTACT US</h3><br>
         </div>
         <a class="carousel-control-prev"  href="./stats.html"  role="button" data-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -46,44 +45,23 @@
         </div>
         </div>
      </main>
-     <form> 
-        <div class="container-fluid px-5 my-5">
-          <div class="row justify-content-center">
-            <div class="col-xl-10">
-              <div class="card border-0 rounded-3 shadow-lg overflow-hidden">
-                <div class="card-body p-0">
-                  <div class="row g-0">
-                    <div class="col-sm-6 d-none d-sm-block bg-image"></div>
-                    <div class="col-sm-6 p-4">
-                      <div class="text-center">
-                        <div class="h3 fw-light"></div>
-                      </div>
-                  
-                <div class="form-floating mb-3">
-                  <input class="form-control" id="name" type="text" placeholder="Name">
-                  <label for="name">Name</label>
-                </div>
-
-                <div class="form-floating mb-3">
-                  <input class="form-control" id="emailAddress" type="email" placeholder="Email Address">
-                  <label for="emailAddress">Email Address</label>
-                </div>
-
-                <div class="form-floating mb-3">
-                  <span class="input-group-text">Message</span>
-                  <textarea class="form-control" aria-label="With textarea"></textarea>
-                </div>
-                <div class="d-grid">
-                  <button class="btn btn-primary btn-lg" id="submitButton" type="submit">Submit</button>
-                </div>
-            </div>
-          </div>
-        </div>
+     <form class="d-flex justify-content-center align-items-center flex-column">
+      <div class="form-contact">
+      <div class="mb-3">
+          <label for="inputName" class="form-label fw-bold">Name:</label>
+          <input type="text" class="form-control form-nombre " id="inputName">
       </div>
-    </div>
-  </div>
-</div>
-</form>
+      <div class="mb-3">
+          <label for="inputEmail" class="form-label fw-bold">Email address:</label>
+          <input type="email" class="form-control form-mail" id="inputEmail">
+      </div>
+      <div class="mb-3">
+          <label for="inputMessage" class="form-label fw-bold">Message:</label>
+          <input type="text" class="form-control form-message" id="inputMessage">
+      </div>
+      <button type="submit" class="btn btn-secondary justify-content-end button-form">Submit</button>
+      </div>
+  </form>
 <footer>
   <div class="container">
     <div class="row">
